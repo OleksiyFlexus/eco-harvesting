@@ -1,0 +1,201 @@
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+  color: #101828;
+  cursor: default;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #101828;
+  cursor: default;
+}
+h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #101828;
+  cursor: default;
+}
+h4 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #475467;
+  cursor: default;
+}
+h5,
+h6,
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #475467;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus,
+input:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+html,
+body,
+#__nuxt {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+.animatedInput {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  display: block;
+  border: 1px solid #d0d5dd;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.1s ease;
+  z-index: 1;
+  font-size: 16px;
+  color: #000;
+}
+
+.animatedLabel {
+  position: absolute;
+  display: block;
+  z-index: 1;
+  left: 15px;
+  transition: all 0.4s ease;
+  color: #d0d5dd;
+  pointer-events: none;
+}
+
+.animatedInput:focus + .animatedLabel {
+  transform: translateY(-120%);
+  padding: 0 10px;
+  left: 20px;
+  background-color: #fff;
+  color: #7f56d9;
+}
+
+.animatedInput:focus {
+  border: 2px solid #7f56d9;
+  transition: border-color 0.4s ease;
+}
+
+.animatedInput:not(:focus):valid:not(:placeholder-shown) + .animatedLabel {
+  opacity: 0;
+  transition: none;
+}
+
+.animatedInput:not(:focus):user-invalid:not(:placeholder-shown) {
+  border: 2px solid #ff0000;
+}
+
+.animatedInput:not(:focus):user-invalid:not(:placeholder-shown) + .animatedLabel {
+  opacity: 0;
+  transition: none;
+}
+
+.animatedInput:not(:focus):user-invalid:placeholder-shown + .animatedLabel {
+  opacity: 1;
+  transition: all 0.4s ease;
+}
