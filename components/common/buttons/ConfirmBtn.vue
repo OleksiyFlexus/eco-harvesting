@@ -13,7 +13,7 @@
   border: 1px solid #7f56d9;
   border-radius: 8px;
   padding: 10px 16px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
@@ -22,6 +22,7 @@
   font-weight: 600;
   line-height: 24px;
   cursor: pointer;
+  text-decoration: none;
   z-index: 1;
 }
 

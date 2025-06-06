@@ -19,14 +19,17 @@ const socialBtns = [
 </script>
 
 <template>
-  <RegistrationHeader title="Create an account" description="Create your own household." />
+  <HeaderLogo />
+  <TheHeader title="Create an account" description="Create your own household." />
   <RegistrationForm>
-    <RegistrationMain v-for="inputItem in inputItems" :key="inputItem.id" :inputItem="inputItem" />
+    <InputSection v-for="inputItem in inputItems" :key="inputItem.id" :inputItem="inputItem" />
     <ConfirmBtn>Get started</ConfirmBtn>
     <LineSection />
-    <RegistrationSocials :buttons="socialBtns" />
-    <RegistrationFooter description="Already have an account?">
-      <NuxtLink to="/sign-in"><ChangeLoginBtn>Log in</ChangeLoginBtn></NuxtLink>
-    </RegistrationFooter>
+    <SocialSection :buttons="socialBtns" />
+    <TheFooter description="Already have an account?">
+      <NuxtLink to="/sign-in">
+        <TextBtn>Log in</TextBtn>
+      </NuxtLink>
+    </TheFooter>
   </RegistrationForm>
 </template>

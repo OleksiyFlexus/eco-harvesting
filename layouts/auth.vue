@@ -1,10 +1,8 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="authContainer">
-    <header class="authHeader">
-      <HeaderLogo />
-    </header>
+    <div class="authBg"></div>
     <main class="authMain">
       <slot />
     </main>
@@ -13,6 +11,7 @@
 
 <style scoped>
 .authContainer {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,7 +19,7 @@
   align-items: center;
 }
 
-.authHeader {
+.authBg {
   position: absolute;
   display: flex;
   width: 100%;
@@ -36,9 +35,7 @@
 
 .authMain {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 10%;
   display: flex;
   gap: 16px;
   flex-direction: column;

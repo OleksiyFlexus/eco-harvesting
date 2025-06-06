@@ -12,8 +12,6 @@ import LogoIcon from "@/assets/icons/Logo.svg";
 
 <style scoped>
 .registrationHeader {
-  position: absolute;
-  top: 50px;
   display: flex;
   width: 100%;
   flex-direction: column;

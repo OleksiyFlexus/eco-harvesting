@@ -10,13 +10,13 @@ const props = defineProps<{
   inputItem: InputItem;
 }>();
 
-const inputItem = ref("");
+const inputValue = ref("");
 </script>
 
 <template>
   <main class="mainContainer">
     <div class="inputItems">
-      <input class="animatedInput" :type="props.inputItem.type" :pattern="props.inputItem.pattern" :required="props.inputItem.required" v-model="inputItem" />
+      <input class="animatedInput" :type="props.inputItem.type" :pattern="props.inputItem.pattern" :required="props.inputItem.required" v-model="inputValue" />
       <label class="animatedLabel">{{ props.inputItem.placeholder }}</label>
     </div>
   </main>
