@@ -12,17 +12,19 @@ defineProps<{
 <template>
   <nav class="menu">
     <ul>
-      <li v-for="item in menuItems" :key="item.id">
-        <component :is="item.icon" :style="{ width: '18px', height: '18px' }" />
-        <NuxtLink :to="item.link">{{ item.title }}</NuxtLink>
-      </li>
+      <NuxtLink v-for="item in menuItems" :key="item.id" :to="item.link">
+        <li>
+          <component :is="item.icon" :style="{ width: '18px', height: '18px' }" />
+          <div class="linkTitle">{{ item.title }}</div>
+        </li>
+      </NuxtLink>
     </ul>
   </nav>
 </template>
 
 <style scoped>
 .menu {
-  width: 240px;
+  max-width: 240px;
   display: flex;
   flex-direction: column;
 }
@@ -41,14 +43,31 @@ defineProps<{
 }
 
 .menu li:hover,
-.menu li a:hover,
-.menu li a:active {
+.menu li .linkTitle:hover,
+.menu li .linkTitle:active {
   border-radius: 6px;
   background-color: #f9fafb;
   color: #182230;
 }
 
-.menu li a {
+.linkTitle {
   color: #344054;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .linkTitle {
+    display: none;
+  }
+
+  .menu li {
+    width: 48px;
+    height: 48px;
+  }
+
+  .menu,
+  .menu ul {
+    width: 48px;
+  }
 }
 </style>

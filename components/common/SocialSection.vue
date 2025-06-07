@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <div class="socialButtonsSection">
     <SocialAuthBtn v-for="btn in buttons" :key="btn.id" :title="btn.title">
-      <component :is="btn.icon" :style="{ width: '24px', height: '24px' }" />
+      <component :is="btn.icon" class="socialIcon" />
       {{ btn.title }}
     </SocialAuthBtn>
   </div>
@@ -24,5 +24,10 @@ defineProps<{
   width: 100%;
   flex-direction: column;
   gap: 16px;
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
 }
 </style>

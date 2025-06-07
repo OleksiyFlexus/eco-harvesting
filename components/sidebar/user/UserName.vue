@@ -25,4 +25,10 @@
 .userName p:hover {
   color: #39339e;
 }
+
+@media (max-width: 768px) {
+  .userName {
+    display: none;
+  }
+}
 </style>

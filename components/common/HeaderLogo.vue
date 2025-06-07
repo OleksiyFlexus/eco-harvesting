@@ -1,11 +1,17 @@
 <script setup>
-import LogoIcon from "@/assets/icons/Logo.svg";
+const props = defineProps({
+  description: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <template>
   <div class="registrationHeader">
     <div class="logoContainer">
-      <LogoIcon :style="{ width: '128px', height: '128px' }" />
+      <slot />
+      <p>{{ description }}</p>
     </div>
   </div>
 </template>
@@ -16,5 +22,12 @@ import LogoIcon from "@/assets/icons/Logo.svg";
   width: 100%;
   flex-direction: column;
   align-items: center;
+}
+
+.logoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 </style>

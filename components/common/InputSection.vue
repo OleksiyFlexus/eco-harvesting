@@ -34,6 +34,7 @@ const inputValue = ref("");
   position: relative;
   display: flex;
   align-items: center;
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
 }
 </style>

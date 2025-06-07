@@ -1,10 +1,10 @@
-<script setup lang="ts">
-import AvatarIcon from "@/assets/icons/Avatar.svg";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="userImg">
-    <AvatarIcon :style="{ width: '30px', height: '30px' }" />
+    <NuxtLink to="/profile">
+      <img src="@/assets/images/Avatar.jpg" alt="Avatar" />
+    </NuxtLink>
   </div>
 </template>
 
@@ -14,10 +14,17 @@ import AvatarIcon from "@/assets/icons/Avatar.svg";
   max-width: 40px;
   height: 40px;
   border-radius: 50%;
-  overflow: hidden;
   background-color: #e4e7ec;
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: contain;
+  object-position: top;
+}
+
+.userImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 </style>

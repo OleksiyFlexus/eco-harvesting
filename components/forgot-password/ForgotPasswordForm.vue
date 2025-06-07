@@ -1,15 +1,16 @@
-<script setup></script>
+<script setup lang="ts"></script>
 
 <template>
-  <form class="signUpform">
+  <div class="forgotPasswordContent">
     <slot />
-  </form>
+  </div>
 </template>
 
 <style scoped>
-.signUpform {
+.forgotPasswordContent {
   width: 100%;
   max-width: 360px;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;

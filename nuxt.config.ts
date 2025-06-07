@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
 
-  modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/image", "@nuxt/scripts", "nuxt-svgo", "@nuxtjs/google-fonts"],
+  modules: ["@nuxt/content", "@nuxt/fonts", "@nuxt/image", "@nuxt/scripts", "nuxt-svgo", "@nuxtjs/google-fonts", "@nuxtjs/leaflet"],
 
   components: [{ path: "~/components", pathPrefix: false }],
   css: ["@/styles/main.css"],

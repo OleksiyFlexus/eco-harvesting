@@ -1,34 +1,26 @@
 <script setup lang="ts">
-import HomeIcon from "@/assets/icons/home.svg";
-import MapIcon from "@/assets/icons/map.svg";
-import TaskIcon from "@/assets/icons/task.svg";
-import VehicleIcon from "@/assets/icons/vehicle.svg";
-import SettingsIcon from "@/assets/icons/Settings.svg";
-import SupportIcon from "@/assets/icons/Suport.svg";
+import LogoIcon from "../assets/icons/Logo.svg";
+const isMenuOpen = ref(false);
 
-const mainMenuItems = [
-  { id: 1, title: "Моніторинг", icon: HomeIcon, link: "/dashboard", style: { width: "24px", height: "24px" } },
-  { id: 2, title: "Карта", icon: MapIcon, link: "/dashboard" },
-  { id: 3, title: "Завдання", icon: TaskIcon, link: "/dashboard" },
-  { id: 4, title: "Техніка", icon: VehicleIcon, link: "/dashboard" },
-];
-
-const settingsMenuItems = [
-  { id: 1, title: "Налаштування", icon: SettingsIcon, link: "/dashboard" },
-  { id: 2, title: "Підтримка", icon: SupportIcon, link: "/dashboard" },
-];
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
 </script>
 
 <template>
   <div class="dashboardLayoutContent">
+    <div class="mobileMenu">
+      <div class="logoContainer">
+        <LogoIcon :style="{ width: '32px', height: '32px' }" />
+        <h2>Eco Harvesting</h2>
+      </div>
+      <BurgerBtn @toggleMenu="toggleMenu" />
+    </div>
     <div class="navigation">
-      <div class="menuContainer">
-        <TheMenu :menuItems="mainMenuItems" />
-        <TheMenu :menuItems="settingsMenuItems" />
-      </div>
-      <div class="userContainer">
-        <TheUser />
-      </div>
+      <TheSidebar />
+    </div>
+    <div class="menuOverlay" :class="{ open: isMenuOpen }">
+      <TheSidebar />
     </div>
     <div class="dashboardContent">
       <slot />
@@ -44,9 +36,26 @@ const settingsMenuItems = [
   flex-direction: row;
 }
 
+.mobileMenu {
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #e4e7ec;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .navigation {
   width: 100%;
-  max-width: 240px;
+  max-width: 280px;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -54,27 +63,48 @@ const settingsMenuItems = [
   border-right: 1px solid #e4e7ec;
 }
 
-.menuContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.userContainer {
-  width: 100%;
-  max-width: 210px;
-  border-top: 1px solid #e4e7ec;
-  padding-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+.menuOverlay {
   position: fixed;
-  bottom: 30px;
-  height: 65px;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.menuOverlay.open {
+  transform: translateX(0);
 }
 
 .dashboardContent {
-  padding: 32px 32px;
   width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .dashboardLayoutContent {
+    flex-direction: column;
+  }
+  .menuOverlay {
+    display: flex;
+  }
+  .burger {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .navigation {
+    display: none;
+  }
 }
 </style>

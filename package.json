@@ -15,6 +15,7 @@
     "@nuxt/image": "^1.10.0",
     "@nuxt/scripts": "^0.11.8",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/leaflet": "^1.2.6",
     "@unhead/vue": "^2.0.10",
     "nuxt": "^3.17.5",
     "nuxt-svgo": "^4.2.1",

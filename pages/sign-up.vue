@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import GoogleIcon from "@/assets/icons/Google.svg";
 import AppleIcon from "@/assets/icons/Apple.svg";
+import LogoIcon from "@/assets/icons/Logo.svg";
 
 definePageMeta({
-  layout: "auth",
+  layout: "auth-layout",
 });
 
 const inputItems = [
@@ -19,17 +20,43 @@ const socialBtns = [
 </script>
 
 <template>
-  <HeaderLogo />
-  <TheHeader title="Create an account" description="Create your own household." />
-  <RegistrationForm>
-    <InputSection v-for="inputItem in inputItems" :key="inputItem.id" :inputItem="inputItem" />
-    <ConfirmBtn>Get started</ConfirmBtn>
-    <LineSection />
-    <SocialSection :buttons="socialBtns" />
-    <TheFooter description="Already have an account?">
-      <NuxtLink to="/sign-in">
-        <TextBtn>Log in</TextBtn>
-      </NuxtLink>
-    </TheFooter>
-  </RegistrationForm>
+  <div class="signUpPage">
+    <HeaderLogo>
+      <LogoIcon class="logoIcon" />
+    </HeaderLogo>
+    <TheHeader title="Create an account" description="Create your own household." />
+    <RegistrationForm>
+      <InputSection v-for="inputItem in inputItems" :key="inputItem.id" :inputItem="inputItem" />
+      <ConfirmBtn>Get started</ConfirmBtn>
+      <LineSection />
+      <SocialSection :buttons="socialBtns" />
+      <TheFooter description="Already have an account?">
+        <NuxtLink to="/sign-in">
+          <TextBtn>Log in</TextBtn>
+        </NuxtLink>
+      </TheFooter>
+    </RegistrationForm>
+  </div>
 </template>
+<style scoped>
+.signUpPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoIcon {
+  width: 128px;
+  height: 128px;
+}
+
+@media (max-width: 768px) {
+  .signUpPage {
+    padding: 15px;
+  }
+}
+</style>
